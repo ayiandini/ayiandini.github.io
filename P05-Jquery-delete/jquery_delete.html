@@ -1,0 +1,82 @@
+<h1 align="center">The Top 5 Of My Best Friend</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+
+	h1{
+		font-family: Calibri;
+		font-style: italic;
+		font-size: 35px;
+	}
+	td{
+		background: lightpink;
+		cursor: pointer;
+		transition: .2s;
+	}
+
+	td:hover{
+		background: #FAF4B7;
+	}
+	.tabelku {
+		width: 120%;
+		max-width: 800px;
+	}
+</style>
+<table align="center" class="tabelku">
+	<tr class="judul-tabel">
+		<td>No</td>
+		<td>Nama</td>
+		<td>Alamat</td>
+		<td>Aksi</td>
+	</tr>
+	<tr id="row__1" class="row">
+		<td>1</td>
+		<td class="data" id="nama_stdn__1">Khairunnisa Amarullah</td>
+		<td class="data" id="address__1">Kuningan</td>
+		<td class="data" id="delete__1">Hapus</td>
+	</tr>
+	<tr id="row__2" class="row">
+		<td>2</td>
+		<td class="data" id="nama_stdn__2">Fitriyana</td>
+		<td class="data" id="address__2">Indramayu</td>
+		<td class="data" id="delete__2">Hapus</td>
+	</tr>
+	<tr id="row__3" class="row">
+		<td>3</td>
+		<td class="data" id="nama_stdn__3">Fany Septiyany</td>
+		<td class="data" id="address__3">Kuningan</td>
+		<td class="data" id="delete__3">Hapus</td>
+	</tr>
+	<tr id="row__4" class="row">
+		<td>4</td>
+		<td class="data" id="nama_stdn__4">Annisa Saninah</td>
+		<td class="data" id="address__4">Cirebon</td>
+		<td class="data" id="delete__4">Hapus</td>
+	</tr>
+	<tr id="row__5" class="row">
+		<td>5</td>
+		<td class="data" id="nama_stdn__5">Aulia</td>
+		<td class="Data" id="address__5">Kuningan</td>
+		<td class="data" id="delete__5">Hapus</td>
+	</tr>
+</table>
+
+<script>
+	$(document).ready(function(){
+    $('.data').click(function(){
+        let isi = $(this).text();
+        let tid = $(this).prop('id');
+        let rid = tid.split('__');
+        let id_row = rid[1];
+        let nama_stdn = $('#nama_stdn__'+id_row).text();
+
+        if(isi=='Hapus'){
+            let konfirmasi = confirm(`Anda yakin ingin menghapus data ${nama_stdn}?`);
+            if(!konfirmasi) return;
+
+            $('#row__'+id_row).fadeOut();
+        }else{
+            alert("Maaf kolom ini tidak bisa diubah. Terima Kasih");
+        }
+    })
+})
+</script>
